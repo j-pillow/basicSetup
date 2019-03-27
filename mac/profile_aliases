@@ -1,0 +1,131 @@
+# ======================================================================================== Clear
+alias cl='clear && ls'
+alias cx='clear && lx'
+alias ct='clear && tree'
+alias cls='clear && printf "\e[3J" '
+
+
+# ======================================================================================== Directories
+alias b='cd -'
+alias work='cd ~/work && cx'
+alias ana='cd ~/work/electronAnalysis && cx'
+alias pan='cd ~/work/pandora/LArReco/bin && cx'
+
+
+# ======================================================================================== Du/df
+alias du='du -sh'
+alias dua='du -sh && du -sh *'
+alias df='df -H'
+
+
+# ======================================================================================== Editors/programs
+alias word="open -a Microsoft\ Word"
+
+
+# ======================================================================================== Git
+alias gadd='git add .'
+alias gstat='git status'
+alias gcom='git commit -m'
+alias gpush='git push'
+alias gpull='git pull'
+
+
+# ======================================================================================== Kerberos
+alias kcern='kinit jpillow@CERN.CH'
+alias kcernr='kinit -R jpillow@CERN.CH'
+alias kfnal='kinit jpillow@FNAL.GOV'
+alias kfnalr='kinit -R jpillow@FNAL.GOV'
+
+
+# ======================================================================================== Latex
+alias jaxo='java -jar jaxodraw-2.1-0.jar &'
+
+
+# ======================================================================================== LS
+alias ls='gls -l --si --color'
+alias la='gls -la --si --color'
+alias lr='gls -ltr --si --color'
+alias lx='gls -lX --si --color' 
+
+
+# ======================================================================================== Make
+alias mi='make install -j6'
+
+
+# ======================================================================================== Pandora
+alias pandora='cd ~/work/pandora/LArReco/settings/ && export FW_SEARCH_PATH=`pwd`:$FW_SEARCH_PATH && cd ../../LArMachineLearningData/ && export FW_SEARCH_PATH=`pwd`:$FW_SEARCH_PATH && cd ../LArReco/bin/'
+alias evtdis='./PandoraInterface -r full -i ../settings/PandoraSettings_Master_ProtoDUNE.xml -g ../geometry/PandoraGeometry_ProtoDUNE.xml -e'
+
+
+# ======================================================================================== Password locker
+function pass() { . ~/.pass/pass.sh $@; }
+
+
+# ======================================================================================== Profile
+alias prof='source ~/.profile'
+alias vprof='vim ~/.profile'
+alias vvim='vim ~/.vimrc'
+alias vpal='vim ~/.profile_aliases'
+alias vdir='vim ~/.dircolors'
+
+
+# ======================================================================================== Python
+alias py2='python2'
+alias ipy2='ipython2'
+alias py3='python3'
+alias ipy3='ipython3'
+alias ipy2py='jupyter nbconvert --to=python'
+alias jn='jupyter notebook'
+alias tf='source ~/tensorflow/bin/activate'
+
+
+# ======================================================================================== RM
+alias rm='rm -i'
+
+
+# ======================================================================================== Root
+alias root='root -l'
+
+
+# ======================================================================================== SCP
+# ------------------------------------------------------------------- CERN
+function ccern() { scp jpillow@lxplus.cern.ch:$@; }
+
+# ------------------------------------------------------------------- WARW
+function cepp() { scp phrzzf@epp-ui01.dcs.warwick.ac.uk:$@; }
+
+
+
+# ======================================================================================== SSH
+# For making ssh keys
+# ssh-keygen -t rsa
+# ssh-keygen -t ecdsa
+# ssh-add <keyname>
+# ---------------------------------------------------------------------------------- CERN
+alias cern='ssh -XY jpillow@lxplus.cern.ch'               # Lxplus
+alias cernB='ssh jpillow@dune-vm-build-03'                # PDune CERN build machine
+alias cernP='ssh -N -D 8080 jpillow@lxplus.cern.ch'       # Cern Proxy
+alias npom='ssh -Y jpillow@np04om'                        # PDune OM server
+alias daqom='ssh -Y np04daq@np04om'                       # PDUNE OM server DAQ
+function np() { ssh -Y jpillow@np04-srv-0$@;}             # PDUNE servers
+function npdaq() { ssh -Y np04daq@np04-srv-0$@;}          # PDUNE servers DAQ
+
+# ---------------------------------------------------------------------------------- FNAL
+function fnal() { ssh -KY jpillow@dunegpvm$@.fnal.gov; }  # Fermilab 01 -> 10
+function fnalscp() { scp jpillow@dunegpvm07.fnal.gov:$@; }
+alias fnalB='ssh -KY jpillow@dunebuild01.fnal.gov'
+
+# ---------------------------------------------------------------------------------- WARW
+alias epp='ssh -XY phrzzf@epp-ui01.dcs.warwick.ac.uk'      # EPP Cluster
+alias csc='ssh -XYC phrzzf@galibier.epp.warwick.ac.uk'     # CSC Desktops
+function cscscpr() { scp -r phrzzf@galibier.epp.warwick.ac.uk:$@; }
+function cscscp() { scp phrzzf@galibier.epp.warwick.ac.uk:$@; }
+
+
+# ======================================================================================== VNC
+alias fnalvnc='ssh dunegpvm08'
+alias vnc='open vnc://localhost:5901'
+
+
+# ========================================================== Xcode
+alias xcodeKeywords='cd /Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Versions/A/Resources'
