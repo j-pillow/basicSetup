@@ -110,6 +110,9 @@ alias daqom='ssh -Y np04daq@np04om'                       # PDUNE OM server DAQ
 function np() { ssh -Y jpillow@np04-srv-0$@;}             # PDUNE servers
 function npdaq() { ssh -Y np04daq@np04-srv-0$@;}          # PDUNE servers DAQ
 
+# ---------------------------------------------------------------------------------- Mac
+alias macmini='ssh -Y james@137.205.164.112'
+
 # ---------------------------------------------------------------------------------- FNAL
 function fnal() { ssh -KY jpillow@dunegpvm$@.fnal.gov; }  # Fermilab 01 -> 10
 function fnalscp() { scp jpillow@dunegpvm07.fnal.gov:$@; }
