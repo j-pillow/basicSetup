@@ -37,10 +37,6 @@ alias kfnal='kinit jpillow@FNAL.GOV'
 alias kfnalr='kinit -R jpillow@FNAL.GOV'
 
 
-# ======================================================================================== Latex
-alias jaxo='java -jar jaxodraw-2.1-0.jar &'
-
-
 # ======================================================================================== LS
 alias ls='gls -l --si --color'
 alias la='gls -la --si --color'
@@ -60,6 +56,9 @@ alias evtdis='./PandoraInterface -r full -i ../settings/PandoraSettings_Master_P
 # ======================================================================================== Password locker
 function pass() { . ~/.pass/pass.sh $@; }
 
+# ======================================================================================== PDFs
+alias combinepdfs='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
+
 
 # ======================================================================================== Profile
 alias prof='source ~/.profile'
@@ -71,12 +70,7 @@ alias vdir='vim ~/.dircolors'
 
 # ======================================================================================== Python
 alias py2='python2'
-alias ipy2='ipython2'
 alias py3='python3'
-alias ipy3='ipython3'
-alias ipy2py='jupyter nbconvert --to=python'
-alias jn='jupyter notebook'
-alias tf='source ~/tensorflow/bin/activate'
 
 
 # ======================================================================================== RM
@@ -87,20 +81,7 @@ alias rm='rm -i'
 alias root='root -l'
 
 
-# ======================================================================================== SCP
-# ------------------------------------------------------------------- CERN
-function ccern() { scp jpillow@lxplus.cern.ch:$@; }
-
-# ------------------------------------------------------------------- WARW
-function cepp() { scp phrzzf@epp-ui01.dcs.warwick.ac.uk:$@; }
-
-
-
 # ======================================================================================== SSH
-# For making ssh keys
-# ssh-keygen -t rsa
-# ssh-keygen -t ecdsa
-# ssh-add <keyname>
 # ---------------------------------------------------------------------------------- CERN
 alias cern='ssh -XY jpillow@lxplus.cern.ch'               # Lxplus
 alias cernB='ssh jpillow@dune-vm-build-03'                # PDune CERN build machine
@@ -111,7 +92,7 @@ function np() { ssh -Y jpillow@np04-srv-0$@;}             # PDUNE servers
 function npdaq() { ssh -Y np04daq@np04-srv-0$@;}          # PDUNE servers DAQ
 
 # ---------------------------------------------------------------------------------- Mac
-alias macmini='ssh -Y james@137.205.164.112'
+alias macmini='ssh macmini'
 
 # ---------------------------------------------------------------------------------- FNAL
 function fnal() { ssh -KY jpillow@dunegpvm$@.fnal.gov; }  # Fermilab 01 -> 10
@@ -119,10 +100,10 @@ function fnalscp() { scp jpillow@dunegpvm07.fnal.gov:$@; }
 alias fnalB='ssh -KY jpillow@dunebuild01.fnal.gov'
 
 # ---------------------------------------------------------------------------------- WARW
-alias epp='ssh -XY phrzzf@epp-ui01.dcs.warwick.ac.uk'      # EPP Cluster
-alias csc='ssh -XYC phrzzf@galibier.epp.warwick.ac.uk'     # CSC Desktops
-function cscscpr() { scp -r phrzzf@galibier.epp.warwick.ac.uk:$@; }
-function cscscp() { scp phrzzf@galibier.epp.warwick.ac.uk:$@; }
+#alias epp='ssh -XY phrzzf@epp-ui01.dcs.warwick.ac.uk'      # EPP Cluster
+#alias csc='ssh -XYC phrzzf@galibier.epp.warwick.ac.uk'     # CSC Desktops
+alias epp='ssh -XY epp' # EPP Cluster
+alias csc='ssh -XY csc' # CSC Desktops
 
 
 # ======================================================================================== VNC

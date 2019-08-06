@@ -97,6 +97,14 @@ vnoremap k j
 " Let W save
 command! W :w
 
+" Remap jj to Esc
+inoremap jj <Esc>
+
+" Remap v to ctrl-v
+nnoremap v <C-V>
+
+" Remap <F5> to remove trailing space 
+nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 " Set column colour to different colour after 80
 "hi ColorColumn ctermfg=244

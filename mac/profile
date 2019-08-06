@@ -63,12 +63,26 @@ fi
 # ============================================================================== Alias definitions
 if [ -f ~/.profile_aliases ]; then
   . ~/.profile_aliases
+else
+  echo
+  echo "No ~/.profile_aliases file found"
+  echo
 fi
 
 
 # ============================================================================== Pandora
-export FW_SEARCH_PATH=/Users/james/work/pandora/LArReco/settings:$FW_SEARCH_PATH
-export FW_SEARCH_PATH=/Users/james/work/pandora/LArMachineLearningData:$FW_SEARCH_PATH
+pandoraLoc=/Users/james/work/pandora/
+pandoraInt=${pandoraLoc}LArReco/bin/PandoraInterface
+if [ -f $pandoraInt ]; then 
+  export FW_SEARCH_PATH=/Users/james/work/pandora/LArReco/settings:$FW_SEARCH_PATH
+  export FW_SEARCH_PATH=/Users/james/work/pandora/LArMachineLearningData:$FW_SEARCH_PATH
+else
+  echo
+  echo "Pandora location is not set correctly"
+  echo "Currently looking for it at" $pandoraLoc
+  echo "Alternatively, just comment this ection out in the ~/.profile"
+  echo
+fi
 
 
 # ============================================================================== Programmable completion
@@ -92,9 +106,7 @@ esac
 
 
 # ============================================================================== ls colour settings
-#export CLICOLOR=1
-#export LSCOLORS=GxgxfxFxCxHxcx
-#export LSCOLORS=GxgxfxFxCxcxBxbxHxdhDH
+# If you're having problems with ls and dircolors, you probably need to install gnu ls
 eval $(gdircolors -b ~/.dircolors)
 export LS_COLORS
 
@@ -111,7 +123,16 @@ export LS_COLORS
 
 
 # ============================================================================== Set root
-. /Applications/root_6_16_00_build/bin/thisroot.sh
+cernRoot=/Applications/root_6_16_00_build/bin/thisroot.sh
+if [ -f $cernRoot ]; then 
+  . $cernRoot
+else
+  echo
+  echo "Root location is not set correctly"
+  echo "Currently looking for it at" $cernRoot
+  echo "Alternatively, just comment this section out in the ~/.profile"
+  echo
+fi
 
 
 # ============================================================================== Set my kerberos configuration
