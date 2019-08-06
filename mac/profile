@@ -80,7 +80,7 @@ else
   echo
   echo "Pandora location is not set correctly"
   echo "Currently looking for it at" $pandoraLoc
-  echo "Alternatively, just comment this ection out in the ~/.profile"
+  echo "Alternatively, just comment this section out in the ~/.profile"
   echo
 fi
 
