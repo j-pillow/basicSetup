@@ -46,14 +46,16 @@ mv ${platform}/vim ~/.vim
 
 echo
 #echo "cd into ~/.vim and git clone the bundles"
-echo cd ~/.vimrc/bundle
-cd ~/.vimrc/bundle
+echo cd ~/.vim/bundle
+cd ~/.vim/bundle
 while read -r line; do
   echo
   echo git clone $line
   git clone $line
 done < gitRepos
 rm -f gitRepos
+
+mv james.vim ~/.vim/bundle/lightline.vim/autoload/lightline/colorscheme/
 
 echo
 #echo "cd back to" ${thisDir}
