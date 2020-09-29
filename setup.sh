@@ -61,3 +61,9 @@ echo
 #echo "cd back to" ${thisDir}
 echo cd ${thisDir}
 cd ${thisDir}
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+brew install coreutils
+
+brew install python3
